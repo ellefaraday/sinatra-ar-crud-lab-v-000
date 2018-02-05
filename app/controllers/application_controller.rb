@@ -12,6 +12,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get 'posts/new' do
+    "hello world"
     erb :new
   end
 
@@ -22,5 +23,10 @@ class ApplicationController < Sinatra::Base
   get '/posts' do
     @posts= Post.all
     erb :index
+  end
+
+  get 'posts/:id' do
+    @post = Post.find(params[:id])
+    erb :show
   end
 end
